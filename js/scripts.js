@@ -4,7 +4,7 @@
 var full_width = 0;
 
 jQuery(".container ul:first > li").each(function( index ) {
-	if((jQuery(this).width() + full_width) > 750) {
+	if((jQuery(this).width() + full_width) > 850) {
 		jQuery(this).remove();
 	}
 	full_width = full_width + jQuery(this).width();

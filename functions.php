@@ -9,13 +9,7 @@ require_once ( 'includes/custom-functions.php' );
 require_once ( 'includes/customizer.php' );
 
 
-/*
-*	Theme Support
-*/
 
-add_theme_support( 'post-thumbnails' ); // Post Thumbnails
-
-add_theme_support( 'automatic-feed-links' ); // Automatic Feed Links
 
 
 /*
@@ -31,6 +25,14 @@ if ( ! isset( $content_width ) ) $content_width = 636;
 function plumbelt_lite_load_theme_textdomain() {
 
 	load_theme_textdomain( 'plumbelt-lite', get_template_directory().'/languages' );
+	
+	/*
+	*	Theme Support
+	*/
+
+	add_theme_support( 'post-thumbnails' ); // Post Thumbnails
+
+	add_theme_support( 'automatic-feed-links' ); // Automatic Feed Links
 	
 }
 add_action( 'after_setup_theme', 'plumbelt_lite_load_theme_textdomain' );
@@ -53,7 +55,7 @@ function plumbelt_lite_enqueue_style_plumbelt() {
 	
 	wp_enqueue_script( 'plumbelt-lite-fancybox-script', get_template_directory_uri() . '/js/jquery.fancybox.js', array( 'jquery' ), '1.0', true );
 
-    wp_enqueue_script( 'plumbelt-lite-masonry', get_template_directory_uri() . '/js/jquery.masonry.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'jquery-masonry' );
 
     wp_enqueue_script( 'plumbelt-lite-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0', true );
 

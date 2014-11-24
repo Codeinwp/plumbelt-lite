@@ -114,7 +114,7 @@
 
 
 
-					if ( get_theme_mod( 'ti_frontpage_boxtwo_content' ) ) {
+					if ( get_theme_mod( 'ti_frontpage_boxtwo_content','Go to Appearance - Customize, to add content.' ) ) {
 
 						echo '<p>'. get_theme_mod( 'ti_frontpage_boxtwo_content','Go to Appearance - Customize, to add content.' ) .'</p>';
 
@@ -136,7 +136,7 @@
 
 
 
-					if ( get_theme_mod( 'ti_frontpage_boxthree_content' ) ) {
+					if ( get_theme_mod( 'ti_frontpage_boxthree_content','Go to Appearance - Customize, to add content.' ) ) {
 
 						echo '<p>'. get_theme_mod( 'ti_frontpage_boxthree_content','Go to Appearance - Customize, to add content.' ) .'</p>';
 

@@ -1,8 +1,8 @@
 = PlumBelt Lite =
 
-Author: codeinwp
+Author: ThemeIsle
 
-Author URI: Codeinwp.com
+Author URI: https://themeisle.com
 
 Tags: white, yellow, light, two-columns, right-sidebar, custom-menu, featured-images, sticky-post, translation-ready
 
@@ -35,8 +35,4 @@ The exceptions to this license are as follows:
 		
 	* Source Sans Pro font:
 
-		http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL	
-				
-	* jQuery Masonry v2.0.110517 beta
-	
-		Licensed under the MIT license.
+		http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL

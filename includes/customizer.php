@@ -28,7 +28,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		'description' =>  __( "Thank you for being part of this! We've spent almost 6 months building ThemeIsle without really knowing if anyone will ever use a theme or not, so we're very grateful that you've decided to work with us. Wanna <a href='http://themeisle.com/contact/' target='_blank'>say hi</a>?<br/><br/><a href='http://themeisle.com/demo/?theme=PlumBelt%20Lite' target='_blank' />View Theme Demo</a> | <a href='http://themeisle.com/forums/forum/plumbelt-lite' target='_blank'>Get theme support</a><br/><br/><a href='http://themeisle.com/documentation-plumbelt-lite' target='_blank'>Documentation</a><br><br><a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme/' target='_blank' style='color:red'>Upgrade to PRO</a> ",'plumbelt-lite'),'priority'   => 30,
 	));
 	$wp_customize->add_setting( 
-        'codeinwp_theme_notes'
+        'codeinwp_theme_notes', array('sanitize_callback' => 'plumbelt_lite_sanitize_notes')
 	);
 	 $wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'codeinwp_theme_notes',
 	    array(
@@ -392,7 +392,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		/* Front Page - Article - Image */
 
-		$wp_customize->add_setting( 'ti_frontpage_article_image',array('default' => get_template_directory_uri() .'/upload/article-1.jpg') );
+		$wp_customize->add_setting( 'ti_frontpage_article_image',array('default' => get_template_directory_uri() .'/upload/article-1.jpg', 'sanitize_callback' => 'esc_url_raw') );
 
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ti_frontpage_article_image', array(
 
@@ -570,7 +570,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		/* Footer - Contact Us - Iframe/ Code */
 
-		$wp_customize->add_setting( 'ti_footer_iframecode_content',array('default' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193572.0037917104!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York!5e0!3m2!1sro!2sro!4v1404281704059" width="600" height="450" frameborder="0" style="border:0"></iframe>') );
+		$wp_customize->add_setting( 'ti_footer_iframecode_content',array('default' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193572.0037917104!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York!5e0!3m2!1sro!2sro!4v1404281704059" width="600" height="450" frameborder="0" style="border:0"></iframe>','sanitize_callback' => 'plumbelt_lite_sanitize_iframe') );
 
 		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'ti_footer_iframecode_content', array(
 
@@ -630,8 +630,14 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		function plumbelt_lite_sanitize_text( $input ) {
 			return wp_kses_post( force_balance_tags( $input ) );
 		}
-
-
+		
+		function plumbelt_lite_sanitize_notes( $input ) {
+			return $input;
+		}	
+		
+		function plumbelt_lite_sanitize_iframe( $input ) {
+			return force_balance_tags( $input );
+		}
 
 }
 
