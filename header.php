@@ -58,7 +58,7 @@ if ( is_front_page() ) {
 
 			<?php
 
-			if ( get_theme_mod( 'ti_header_contact_telephone','(+4) 0749.555.777' ) ) {
+			if ( get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) ) {
 
 				echo '<div id="call_me_now">';
 
@@ -68,21 +68,21 @@ if ( is_front_page() ) {
 
 				<?php
 
-				if ( get_theme_mod( 'ti_header_contact_telephone','(+4) 0749.555.777' ) ) {
+				if ( get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite')) ) {
 
 
 
-					if ( get_theme_mod( 'ti_header_contact_title','Call me now:' ) ) {
+					if ( get_theme_mod( 'ti_header_contact_title',__('Call me now:','plumbelt-lite') )) {
 
-						echo get_theme_mod( 'ti_header_contact_title','Call me now:' );
+						echo get_theme_mod( 'ti_header_contact_title',__('Call me now:','plumbelt-lite') );
 
 					}
 
 
 
-					if ( get_theme_mod( 'ti_header_contact_telephone','(+4) 0749.555.777' ) ) {
+					if ( get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) ) {
 
-						echo '<a href="tel:'. get_theme_mod( 'ti_header_contact_telephone','(+4) 0749.555.777' ) .'">'. get_theme_mod( 'ti_header_contact_telephone','(+4) 0749.555.777' ) .'</a>';
+						echo '<a href="tel:'. get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) .'">'. get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) .'</a>';
 
 					}
 
@@ -94,7 +94,7 @@ if ( is_front_page() ) {
 
 			<?php
 
-			if ( get_theme_mod( 'ti_header_contact_telephone','(+4) 0749.555.777' ) ) {
+			if ( get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) ) {
 
 				echo '</div>';
 

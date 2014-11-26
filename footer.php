@@ -16,17 +16,17 @@
 
 				<?php
 
-				if ( get_theme_mod( 'ti_footer_aboutus_title','About Us' ) ) {
+				if ( get_theme_mod( 'ti_footer_aboutus_title',__('About Us','plumbelt-lite') ) ) {
 
-					echo '<h5>'. get_theme_mod( 'ti_footer_aboutus_title','About Us' ) .'</h5>';
+					echo '<h5>'. get_theme_mod( 'ti_footer_aboutus_title',__('About Us','plumbelt-lite') ) .'</h5>';
 
 				}
 
 
 
-				if ( get_theme_mod( 'ti_footer_aboutus_content','Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed' ) ) {
+				if ( get_theme_mod( 'ti_footer_aboutus_content',__('Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed','plumbelt-lite') ) ) {
 
-					echo '<p>'. get_theme_mod( 'ti_footer_aboutus_content','Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed' ) .'</p>';
+					echo '<p>'. get_theme_mod( 'ti_footer_aboutus_content',__('Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed','plumbelt-lite' )) .'</p>';
 
 				}
 
@@ -38,17 +38,17 @@
 
 				<?php
 
-				if ( get_theme_mod( 'ti_footer_contactus_title','Contact Us' ) ) {
+				if ( get_theme_mod( 'ti_footer_contactus_title',__('Contact Us','plumbelt-lite') ) ) {
 
-					echo '<h5>'. get_theme_mod( 'ti_footer_contactus_title','Contact Us' ) .'</h5>';
+					echo '<h5>'. get_theme_mod( 'ti_footer_contactus_title',__('Contact Us','plumbelt-lite')) .'</h5>';
 
 				}
 
 
 
-				if ( get_theme_mod( 'ti_footer_contactus_content','<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>' ) ) {
+				if ( get_theme_mod( 'ti_footer_contactus_content',__('<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>' ,'plumbelt-lite')) ) {
 
-					echo get_theme_mod( 'ti_footer_contactus_content','<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>' );
+					echo get_theme_mod( 'ti_footer_contactus_content',__('<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>','plumbelt-lite') );
 
 				}
 
@@ -60,9 +60,9 @@
 
 				<?php
 
-				if ( get_theme_mod( 'ti_footer_map_title','Map' ) ) {
+				if ( get_theme_mod( 'ti_footer_map_title',__('Map','plumbelt-lite') ) ) {
 
-					echo '<h5>'. get_theme_mod( 'ti_footer_map_title','Map' ) .'</h5>';
+					echo '<h5>'. get_theme_mod( 'ti_footer_map_title',__('Map','plumbelt-lite') ) .'</h5>';
 
 				}
 

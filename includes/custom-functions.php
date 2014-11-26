@@ -23,7 +23,7 @@ function plumbelt_lite_pagination ($pages = '', $range = 4) {
         if($paged > 1) {
             echo previous_posts_link();
         }
-        echo "<span><b>".$paged."</b> ". __( 'of', 'ti' ) ." <b>".$pages."</b></span>";
+        echo "<span><b>".$paged."</b> ". __( 'of', 'plumbelt-lite' ) ." <b>".$pages."</b></span>";
         echo next_posts_link();
         echo "</div>\n";
     }
@@ -32,8 +32,8 @@ function plumbelt_lite_pagination ($pages = '', $range = 4) {
 /*
 *   Post Gallery
 */
-add_filter('post_gallery', 'my_post_gallery', 10, 2);
-function my_post_gallery($output, $attr) {
+add_filter('post_gallery', 'plumbelt_lite_my_post_gallery', 10, 2);
+function plumbelt_lite_my_post_gallery($output, $attr) {
     global $post;
 
     if (isset($attr['orderby'])) {
@@ -97,15 +97,15 @@ function my_post_gallery($output, $attr) {
 /*
 *   Comments List
 */
-if ( ! function_exists( 'comments_list' ) ) :
-function comments_list( $comment, $args, $depth ) {
+if ( ! function_exists( 'plumbelt_lite_comments_list' ) ) :
+function plumbelt_lite_comments_list( $comment, $args, $depth ) {
     $GLOBALS['comment'] = $comment;
     switch ( $comment->comment_type ) :
         case 'pingback' :
         case 'trackback' :
     ?>
     <li class="post pingback">
-        <p><?php _e( 'Pingback:', 'ti' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'ti' ), ' ' ); ?></p>
+        <p><?php _e( 'Pingback:', 'plumbelt-lite' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( '(Edit)', 'plumbelt-lite' ), ' ' ); ?></p>
     <?php
             break;
         default :
@@ -117,13 +117,13 @@ function comments_list( $comment, $args, $depth ) {
             </div><!--/.comment-avatar-->
             <div class="comment-entry">
                 <span>
-                    <?php printf( __( 'by %s', 'ti' ), sprintf( '%s', get_comment_author_link() ) ); ?>
-                    <?php _e( 'on', 'ti' ); ?>
+                    <?php printf( __( 'by %s', 'plumbelt-lite' ), sprintf( '%s', get_comment_author_link() ) ); ?>
+                    <?php _e( 'on', 'plumbelt-lite' ); ?>
                     <time pubdate datetime="<?php comment_time( 'c' ); ?>">
                         <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>" title="">
-                            <?php printf( __( '%1$s at %2$s', 'shape' ), get_comment_date(), get_comment_time() ); ?>
+                            <?php printf( __( '%1$s at %2$s', 'plumbelt-lite' ), get_comment_date(), get_comment_time() ); ?>
                         </a><!--/a-->
-                        <?php edit_comment_link( __( '(Edit)', 'shape' ), ' ' ); ?>
+                        <?php edit_comment_link( __( '(Edit)', 'plumbelt-lite' ), ' ' ); ?>
                     </time><!--/time-->
                 </span><!--/span-->
                 <?php comment_text(); ?>
@@ -136,13 +136,5 @@ function comments_list( $comment, $args, $depth ) {
     endswitch;
 }
 endif;
-
-/*
-*   Excerpt Limit Length
-*/
-function excerpt_limit_length($string, $limit) {
-    $words = explode(' ', $string);
-    return implode(' ', array_slice($words, 0, $limit));
-}
 
 ?>

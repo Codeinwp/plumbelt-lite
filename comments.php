@@ -30,7 +30,7 @@ if ( post_password_required() )
     <?php endif; ?>
     <ol class="comments-list cf">
         <?php wp_list_comments( array(
-                'callback'  => 'comments_list',
+                'callback'  => 'plumbelt_lite_comments_list',
                 'max_depth' => '3'
             )
         ); ?>
