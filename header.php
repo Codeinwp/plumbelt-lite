@@ -74,7 +74,7 @@ if ( is_front_page() ) {
 
 					if ( get_theme_mod( 'ti_header_contact_title',__('Call me now:','plumbelt-lite') )) {
 
-						echo get_theme_mod( 'ti_header_contact_title',__('Call me now:','plumbelt-lite') );
+						echo esc_attr(get_theme_mod( 'ti_header_contact_title',__('Call me now:','plumbelt-lite') ));
 
 					}
 
@@ -82,7 +82,7 @@ if ( is_front_page() ) {
 
 					if ( get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) ) {
 
-						echo '<a href="tel:'. get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) .'">'. get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') ) .'</a>';
+						echo '<a href="tel:'. esc_attr(get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') )) .'">'. esc_attr(get_theme_mod( 'ti_header_contact_telephone',__('(+4) 0749.555.777','plumbelt-lite') )) .'</a>';
 
 					}
 
@@ -108,7 +108,7 @@ if ( is_front_page() ) {
 
 				if ( get_theme_mod( 'ti_header_logo',get_template_directory_uri() .'/images/logo.png' ) ) {
 					echo '<a id="logo" href="'.esc_url( home_url( '/' ) ).'" title="'.get_bloginfo( 'title' ).'">';
-						echo '<img src="'. get_theme_mod( 'ti_header_logo',get_template_directory_uri() .'/images/logo.png' ) .'">';
+						echo '<img src="'. esc_url(get_theme_mod( 'ti_header_logo',get_template_directory_uri() .'/images/logo.png' )) .'">';
 					echo '</a>';	
 
 				} else {
@@ -168,7 +168,7 @@ if ( is_front_page() ) {
 
 					if ( get_theme_mod( 'ti_header_facebook_link','#' ) ) {
 
-						echo '<a href="'. get_theme_mod( 'ti_header_facebook_link','#' ) .'" target="_blank"><img src="'. get_template_directory_uri() .'/images/facebook.png" alt="facebook"></a>';
+						echo '<a href="'. esc_url(get_theme_mod( 'ti_header_facebook_link','#' )) .'" target="_blank"><img src="'. get_template_directory_uri() .'/images/facebook.png" alt="facebook"></a>';
 
 					}
 
@@ -176,7 +176,7 @@ if ( is_front_page() ) {
 
 					if ( get_theme_mod( 'ti_header_twitter_link','#' ) ) {
 
-						echo '<a href="'. get_theme_mod( 'ti_header_twitter_link','#' ) .'" target="_blank"><img src="'. get_template_directory_uri() .'/images/twitter.png" alt="twitter"></a>';
+						echo '<a href="'. esc_url(get_theme_mod( 'ti_header_twitter_link','#' )).'" target="_blank"><img src="'. get_template_directory_uri() .'/images/twitter.png" alt="twitter"></a>';
 
 					}
 
@@ -184,7 +184,7 @@ if ( is_front_page() ) {
 
 					if ( get_theme_mod( 'ti_header_youtube_link','#' ) ) {
 
-						echo '<a href="'. get_theme_mod( 'ti_header_twitter_link','#' ) .'" target="_blank"><img src="'. get_template_directory_uri() .'/images/youtube.png" alt="youtube"></a>';
+						echo '<a href="'. esc_url(get_theme_mod( 'ti_header_twitter_link','#' )).'" target="_blank"><img src="'. get_template_directory_uri() .'/images/youtube.png" alt="youtube"></a>';
 
 					}
 

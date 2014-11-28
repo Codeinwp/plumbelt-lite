@@ -9,21 +9,17 @@ require_once ( 'includes/custom-functions.php' );
 require_once ( 'includes/customizer.php' );
 
 
-
-
-
-/*
-*	Content Width
-*/
-	if ( ! isset( $content_width ) ) $content_width = 636;
-
-
 /*
 * Language folder
 */
 
 function plumbelt_lite_load_theme_textdomain() {
 
+	global $content_width;
+    if (!isset($content_width)) {
+        $content_width = 640;
+    }
+	
 	load_theme_textdomain( 'plumbelt-lite', get_template_directory().'/languages' );
 	
 	/*

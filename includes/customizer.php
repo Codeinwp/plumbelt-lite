@@ -430,7 +430,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		/* Front Page - Article - Content */
 
 		$wp_customize->add_setting( 'ti_frontpage_article_content',
-        array('sanitize_callback' => 'plumbelt_lite_sanitize_text','default' => '<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit</p><p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.</p><p>Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p><p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.') );
+        array('sanitize_callback' => 'plumbelt_lite_sanitize_text','default' => 'Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.') );
 
 		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'ti_frontpage_article_content', array(
 
@@ -447,11 +447,52 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		    )
 
 		);
+		
+		/* Front Page - Latest posts */
+
+		$wp_customize->add_setting( 'ti_frontpage_latestposts' ,
+        array('sanitize_callback' => 'plumbelt_lite_sanitize_select','default' => 'show'));
+
+		$wp_customize->add_control( 'ti_frontpage_latestposts', array(
+		
+			'type' => 'select',
+
+		    'label'    => __( 'Show or hide latest posts', 'plumbelt-lite' ),
+
+		    'section'  => 'frontpage_customizer',
+
+		    'settings' => 'ti_frontpage_latestposts',
+
+			'priority' => '10',
+			
+			'choices' => array(
+					'show' => 'Show',
+					'hide' => 'Hide'
+			),
+
+		) );
+		
+
+		 
+		$wp_customize->add_control(
+			'powered_by',
+			array(
+				'type' => 'select',
+				'label' => 'This site is powered by:',
+				'section' => 'example_section_one',
+				'choices' => array(
+					'wordpress' => 'WordPress',
+					'hamsters' => 'Hamsters',
+					'jet-fuel' => 'Jet Fuel',
+					'nuclear-energy' => 'Nuclear Energy',
+				),
+			)
+		);
 
 
 	/*
 
-    ** Frontpage Customizer
+    ** Footer Customizer
 
     */
 
@@ -637,6 +678,10 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		
 		function plumbelt_lite_sanitize_iframe( $input ) {
 			return force_balance_tags( $input );
+		}
+		
+		function plumbelt_lite_sanitize_select( $input ) {
+			return $input;
 		}
 
 }

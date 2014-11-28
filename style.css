@@ -9,7 +9,7 @@ Author: ThemeIsle
 Author URI: https://themeisle.com
 
 Description: PlumBelt is a free business WordPress theme, can be used for plumber, lawyer, dentist or other small business.Some of the major features of PlumBelt are responsive layout, featured images, custom menu, sticky posts and custom contact form. Match is also suitable for personal, portfolio, travel and photography.
-Version: 1.1
+Version: 1.2
 License: GNU General Public License v2 or later
 License URI: license.txt
 Tags: white, yellow, light, two-columns, right-sidebar, custom-menu, featured-images, sticky-post, translation-ready
@@ -1252,7 +1252,10 @@ body.blog .content hr {
 
 }
 
-
+.frontpage.blog .content .main-wrapper {
+	width: 100%;
+	margin-bottom: 0px;
+}
 
 .main-wrapper .wpcf7 {
 
@@ -3736,16 +3739,6 @@ body.contact .content p {
 ** 4.2 Map
 
 */
-
-#map {
-
-	width: 300px;
-
-	height: 240px;
-
-	background: url('images/map.jpg');
-
-}
 
 .site-title {
 	font-size: 30px;

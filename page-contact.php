@@ -48,7 +48,7 @@
 					</div><!--/.widget-map-->
 					<?php
 					if ( get_theme_mod( 'ti_contact_sidebar_content','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' ) ) {
-						echo '<p>'. get_theme_mod( 'ti_contact_sidebar_content', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' ) .'</p>';
+						echo '<p>'. esc_attr(get_theme_mod( 'ti_contact_sidebar_content', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' )) .'</p>';
 					}
 					?>
 				</div><!--/.widget-->
