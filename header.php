@@ -106,7 +106,7 @@ if ( is_front_page() ) {
 
 				<?php
 
-				if ( get_theme_mod( 'ti_header_logo',get_template_directory_uri() .'/images/logo.png' ) ) {
+				if ( get_theme_mod( 'ti_header_logo' ) ) {
 					echo '<a id="logo" href="'.esc_url( home_url( '/' ) ).'" title="'.get_bloginfo( 'title' ).'">';
 						echo '<img src="'. esc_url(get_theme_mod( 'ti_header_logo',get_template_directory_uri() .'/images/logo.png' )) .'">';
 					echo '</a>';	

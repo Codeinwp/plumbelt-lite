@@ -56,7 +56,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		/* Header - Logo */
 
 		$wp_customize->add_setting( 'ti_header_logo' ,
-        array('sanitize_callback' => 'esc_url_raw','default' => get_template_directory_uri() .'/images/logo.png'));
+        array('sanitize_callback' => 'esc_url_raw'));
 
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ti_header_logo', array(
 
@@ -570,7 +570,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		/* Footer - Contact Us - Content */
 
 		$wp_customize->add_setting( 'ti_footer_contactus_content' ,
-        array('sanitize_callback' => 'plumbelt_lite_sanitize_text','default' => '<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>'));
+        array('sanitize_callback' => 'plumbelt_lite_sanitize_text','default' => 'Romania, Bucuresti Str. Loreum ipsum, Nr. 2. Tel: (+4) 0746123456 E-mail: contact@domeniu.com'));
 
 		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'ti_footer_contactus_content', array(
 
@@ -733,5 +733,16 @@ function plumbelt_lite_customize_preview_js() {
 }
 
 add_action( 'customize_preview_init', 'plumbelt_lite_customize_preview_js' );
+
+
+function plumbelt_lite_registers() {
+
+	wp_register_script( 'plumbelt_lite_customizer_script', get_template_directory_uri() . '/js/plumbelt_lite_customizer.js', array("jquery"), '20120206', true  );
+
+	wp_enqueue_script( 'plumbelt_lite_customizer_script' );
+
+}
+
+add_action( 'customize_controls_enqueue_scripts', 'plumbelt_lite_registers' );
 
 ?>
