@@ -46,9 +46,11 @@
 
 
 
-				if ( get_theme_mod( 'ti_footer_contactus_content',__('Romania, Bucuresti Str. Loreum ipsum, Nr. 2. Tel: (+4) 0746123456 E-mail: contact@domeniu.com' ,'plumbelt-lite')) ) {
+				if ( get_theme_mod( 'ti_footer_contactus_content',__('<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>' ,'plumbelt-lite')) ) {
+				
+					$allow_p = array( 'p' => array());
 
-					echo esc_attr(get_theme_mod( 'ti_footer_contactus_content',__('Romania, Bucuresti Str. Loreum ipsum, Nr. 2. Tel: (+4) 0746123456 E-mail: contact@domeniu.com','plumbelt-lite')));
+					echo wp_kses(get_theme_mod( 'ti_footer_contactus_content',__('<p>Romania, Bucuresti<br />Str. Loreum ipsum, Nr. 2</p><p>Tel: (+4) 0746123456<br />E-mail: contact@domeniu.com</p>','plumbelt-lite')), $allow_p);
 
 				}
 
