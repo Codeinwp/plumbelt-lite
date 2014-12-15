@@ -52,6 +52,8 @@ function plumbelt_lite_enqueue_style_plumbelt() {
 	wp_enqueue_script( 'plumbelt-lite-fancybox-script', get_template_directory_uri() . '/js/jquery.fancybox.js', array( 'jquery' ), '1.0', true );
 
     wp_enqueue_script( 'plumbelt-lite-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0', true );
+	
+	wp_enqueue_script('masonry');
 
     if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 

@@ -3678,7 +3678,7 @@ body.contact .content p {
 
 	font-weight: 400;
 
-	font-family: 14px;
+	font-size: 14px;
 
 	color: #182d58;
 
@@ -4065,8 +4065,6 @@ article img {
 		display: block;
 
 		cursor: pointer;
-
-		fill: #0A1E3F;
 
 		float: left;
 
