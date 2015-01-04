@@ -1,22 +1,15 @@
 /*
-
 Theme Name: PlumBelt Lite
-
 Theme URI: https://www.themeisle.com/themes/plumbelt-lite/
-
 Author: ThemeIsle
-
 Author URI: https://themeisle.com
-
 Description: PlumBelt is a free business WordPress theme, can be used for plumber, lawyer, dentist or other small business.Some of the major features of PlumBelt are responsive layout, featured images, custom menu, sticky posts and custom contact form. Match is also suitable for personal, portfolio, travel and photography. <a href="https://themeisle.com/forums/forum/plumbelt-lite">Official support forum</a> (https://themeisle.com/forums/forum/plumbelt-lite).
-Version: 1.2.3
+Version: 1.2.4
 License: GNU General Public License v2 or later
 License URI: license.txt
-Tags: white, yellow, light, two-columns, right-sidebar, custom-menu, featured-images, sticky-post, translation-ready
+Tags: white, yellow,gray,blue, light,one-column two-columns, right-sidebar,fixed-layout, responsive-layout, custom-background,theme-options,threaded-comments, custom-menu, featured-images, sticky-post, translation-ready
 
 Text Domain: plumbelt-lite
-
-
 
 This theme, like WordPress, is licensed under the GPL.
 
@@ -710,7 +703,7 @@ body.frontpage #call_me_now {
 
 	float: right;
 
-	width: 150px;
+	width: 130px;
 
 	text-align: right;
 

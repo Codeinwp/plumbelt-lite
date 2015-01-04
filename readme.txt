@@ -16,7 +16,11 @@ PlumBelt Lite
 PlumBelt is a free business WordPress theme, can be used for plumber, lawyer, dentist or other small business.Some of the major features of PlumBelt are responsive layout, featured images, custom menu, sticky posts and custom contact form. Match is also suitable for personal, portfolio, travel and photography.
 
 Image source: 
-https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818 ( License: GPL )
+https://unsplash.imgix.net/reserve/rHBf1lEaSc2nsbqYPQau_IMG_0177.jpg?q=75&fm=jpg&s=44a23c461c6ef170f0eae6454d43f75a ( License: GPL )
+
+Icons source:
+
+Earphone icon + facebook icon + twitter icon + youtube icon are all designed by us and they are under GPL license.
 
 = License =
 
@@ -26,9 +30,6 @@ License URI: license.txt
 
 The exceptions to this license are as follows: 
 
-	* fancybox:
-	
-		License: www.fancyapps.com/fancybox/#license
 		
 	* Archivo Narrow font:	
 		

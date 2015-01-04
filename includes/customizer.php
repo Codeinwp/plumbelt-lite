@@ -740,6 +740,10 @@ function plumbelt_lite_registers() {
 	wp_register_script( 'plumbelt_lite_customizer_script', get_template_directory_uri() . '/js/plumbelt_lite_customizer.js', array("jquery"), '20120206', true  );
 
 	wp_enqueue_script( 'plumbelt_lite_customizer_script' );
+	wp_localize_script( 'plumbelt_lite_customizer_script', 'plumbelt_lite_pro_text', array(
+		'doc'  => __( 'Documentation', 'plumbelt-lite' ),
+		'pro' => __( 'View PRO Version', 'plumbelt-lite' ),
+	) );
 
 }
 

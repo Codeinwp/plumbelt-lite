@@ -41,15 +41,11 @@ function plumbelt_lite_enqueue_style_plumbelt() {
 
     wp_enqueue_style( 'plumbelt-lite-style', get_stylesheet_uri(), array(), '1.0', false );
 
-    wp_enqueue_style( 'plumbelt-lite-fancybox', get_template_directory_uri() . '/css/jquery.fancybox.css', array(), '1.0' );
-
     wp_enqueue_style( 'plumbelt-lite-font-family-archivo-narrow', '//fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic' );
 
     wp_enqueue_style( 'plumbelt-lite-font-family-istok-web', '//fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic' );
 
     wp_enqueue_style( 'plumbelt-lite-font-family-source-sans-pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' );
-	
-	wp_enqueue_script( 'plumbelt-lite-fancybox-script', get_template_directory_uri() . '/js/jquery.fancybox.js', array( 'jquery' ), '1.0', true );
 
     wp_enqueue_script( 'plumbelt-lite-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0', true );
 	
@@ -61,6 +57,13 @@ function plumbelt_lite_enqueue_style_plumbelt() {
 
 add_action( 'wp_enqueue_scripts', 'plumbelt_lite_enqueue_style_plumbelt' );
 
+// add ie conditional html5 shim to header
+function plumbelt_lite_add_ie_html5_shim () {
+    echo '<!--[if lt IE 9]>';
+    echo '<script src="' . get_template_directory_uri() . '/js/html5shiv.js"></script>';
+    echo '<![endif]-->';
+}
+add_action('wp_head', 'plumbelt_lite_add_ie_html5_shim');
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
