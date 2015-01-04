@@ -10,27 +10,25 @@ require_once ( 'includes/customizer.php' );
 
 
 /*
-*	Theme Support
-*/
-
-add_theme_support( 'post-thumbnails' ); // Post Thumbnails
-
-add_theme_support( 'automatic-feed-links' ); // Automatic Feed Links
-
-
-/*
-*	Content Width
-*/
-
-if ( ! isset( $content_width ) ) $content_width = 636;
-
-/*
 * Language folder
 */
 
 function plumbelt_lite_load_theme_textdomain() {
 
+	global $content_width;
+    if (!isset($content_width)) {
+        $content_width = 640;
+    }
+	
 	load_theme_textdomain( 'plumbelt-lite', get_template_directory().'/languages' );
+	
+	/*
+	*	Theme Support
+	*/
+
+	add_theme_support( 'post-thumbnails' ); // Post Thumbnails
+
+	add_theme_support( 'automatic-feed-links' ); // Automatic Feed Links
 	
 }
 add_action( 'after_setup_theme', 'plumbelt_lite_load_theme_textdomain' );
@@ -43,19 +41,15 @@ function plumbelt_lite_enqueue_style_plumbelt() {
 
     wp_enqueue_style( 'plumbelt-lite-style', get_stylesheet_uri(), array(), '1.0', false );
 
-    wp_enqueue_style( 'plumbelt-lite-fancybox', get_template_directory_uri() . '/css/jquery.fancybox.css', array(), '1.0' );
-
     wp_enqueue_style( 'plumbelt-lite-font-family-archivo-narrow', '//fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic' );
 
     wp_enqueue_style( 'plumbelt-lite-font-family-istok-web', '//fonts.googleapis.com/css?family=Istok+Web:400,700,400italic,700italic' );
 
     wp_enqueue_style( 'plumbelt-lite-font-family-source-sans-pro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' );
-	
-	wp_enqueue_script( 'plumbelt-lite-fancybox-script', get_template_directory_uri() . '/js/jquery.fancybox.js', array( 'jquery' ), '1.0', true );
-
-    wp_enqueue_script( 'plumbelt-lite-masonry', get_template_directory_uri() . '/js/jquery.masonry.js', array( 'jquery' ), '1.0', true );
 
     wp_enqueue_script( 'plumbelt-lite-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0', true );
+	
+	wp_enqueue_script('masonry');
 
     if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
@@ -63,6 +57,13 @@ function plumbelt_lite_enqueue_style_plumbelt() {
 
 add_action( 'wp_enqueue_scripts', 'plumbelt_lite_enqueue_style_plumbelt' );
 
+// add ie conditional html5 shim to header
+function plumbelt_lite_add_ie_html5_shim () {
+    echo '<!--[if lt IE 9]>';
+    echo '<script src="' . get_template_directory_uri() . '/js/html5shiv.js"></script>';
+    echo '<![endif]-->';
+}
+add_action('wp_head', 'plumbelt_lite_add_ie_html5_shim');
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
@@ -91,8 +92,6 @@ function plumbelt_lite_required_plugins() {
 
     );
 
-    // Change this to your theme text domain, used for internationalising strings
-    $theme_text_domain = 'plumbelt-lite';
 
     /**
      * Array of configuration settings. Amend each line as needed.
@@ -111,10 +110,10 @@ function plumbelt_lite_required_plugins() {
         'is_automatic'      => false,                       // Automatically activate plugins after installation or not
         'message'           => '',                          // Message to output right before the plugins table
         'strings'           => array(
-            'page_title'                                => __( 'Install Required Plugins', $theme_text_domain ),
-            'menu_title'                                => __( 'Install Plugins', $theme_text_domain ),
-            'installing'                                => __( 'Installing Plugin: %s', $theme_text_domain ), // %1$s = plugin name
-            'oops'                                      => __( 'Something went wrong with the plugin API.', $theme_text_domain ),
+            'page_title'                                => __( 'Install Required Plugins', 'plumbelt-lite' ),
+            'menu_title'                                => __( 'Install Plugins', 'plumbelt-lite' ),
+            'installing'                                => __( 'Installing Plugin: %s', 'plumbelt-lite' ), // %1$s = plugin name
+            'oops'                                      => __( 'Something went wrong with the plugin API.', 'plumbelt-lite' ),
             'notice_can_install_required'               => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
             'notice_can_install_recommended'            => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
             'notice_cannot_install'                     => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
@@ -125,9 +124,9 @@ function plumbelt_lite_required_plugins() {
             'notice_cannot_update'                      => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
             'install_link'                              => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
             'activate_link'                             => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
-            'return'                                    => __( 'Return to Required Plugins Installer', $theme_text_domain ),
-            'plugin_activated'                          => __( 'Plugin activated successfully.', $theme_text_domain ),
-            'complete'                                  => __( 'All plugins installed and activated successfully. %s', $theme_text_domain ), // %1$s = dashboard link
+            'return'                                    => __( 'Return to Required Plugins Installer', 'plumbelt-lite' ),
+            'plugin_activated'                          => __( 'Plugin activated successfully.', 'plumbelt-lite' ),
+            'complete'                                  => __( 'All plugins installed and activated successfully. %s', 'plumbelt-lite' ), // %1$s = dashboard link
             'nag_type'                                  => 'updated' // Determines admin notice type - can only be 'updated' or 'error'
         )
     );

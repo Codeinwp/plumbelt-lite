@@ -1,22 +1,15 @@
 /*
-
 Theme Name: PlumBelt Lite
-
 Theme URI: https://www.themeisle.com/themes/plumbelt-lite/
-
 Author: ThemeIsle
-
 Author URI: https://themeisle.com
-
-Description: PlumBelt is a free business wordpress theme, can be used for plumber, lawyer, dentist or other small business.Some of the major features of PlumBelt are responsive layout, featured images, custom menu, sticky posts and custom contact form. Match is also suitable for personal, portfolio, travel and photography.
-Version: 1.0.8
+Description: PlumBelt is a free business WordPress theme, can be used for plumber, lawyer, dentist or other small business.Some of the major features of PlumBelt are responsive layout, featured images, custom menu, sticky posts and custom contact form. Match is also suitable for personal, portfolio, travel and photography. <a href="https://themeisle.com/forums/forum/plumbelt-lite">Official support forum</a> (https://themeisle.com/forums/forum/plumbelt-lite).
+Version: 1.2.4
 License: GNU General Public License v2 or later
 License URI: license.txt
-Tags: white, yellow, light, two-columns, right-sidebar, custom-menu, featured-images, sticky-post, translation-ready
+Tags: white, yellow,gray,blue, light,one-column two-columns, right-sidebar,fixed-layout, responsive-layout, custom-background,theme-options,threaded-comments, custom-menu, featured-images, sticky-post, translation-ready
 
-Text Domain: PlumBelt Lite
-
-
+Text Domain: plumbelt-lite
 
 This theme, like WordPress, is licensed under the GPL.
 
@@ -710,7 +703,7 @@ body.frontpage #call_me_now {
 
 	float: right;
 
-	width: 150px;
+	width: 130px;
 
 	text-align: right;
 
@@ -1252,7 +1245,10 @@ body.blog .content hr {
 
 }
 
-
+.frontpage.blog .content .main-wrapper {
+	width: 100%;
+	margin-bottom: 0px;
+}
 
 .main-wrapper .wpcf7 {
 
@@ -2546,8 +2542,33 @@ dl.gallery-columns-1 img {
 
 }
 
-
-
+.wp-caption {
+	background: #f2f2f2;
+	border: 1px solid #e6e6e6;
+	max-width: 100%;
+	text-align:center;
+}
+.wp-caption.alignleft {
+	margin: 5px 20px 20px 0;
+}
+.wp-caption.alignnone {
+	margin: 5px 20px 20px 0;
+}
+.aligncenter, div.aligncenter {
+	display: block;
+	margin: 5px auto 20px auto;
+}
+.wp-caption.alignright {
+	margin: 5px 0 20px 20px;
+}
+.wp-caption img {
+	border: 0 none;
+	height: auto;
+	margin: 0;
+	max-width: 100%;
+	padding: 0;
+	width: auto;
+}
 dl.gallery-columns-1 .wp-caption-text {
 
 	width: 100%;
@@ -3650,7 +3671,7 @@ body.contact .content p {
 
 	font-weight: 400;
 
-	font-family: 14px;
+	font-size: 14px;
 
 	color: #182d58;
 
@@ -3711,16 +3732,6 @@ body.contact .content p {
 ** 4.2 Map
 
 */
-
-#map {
-
-	width: 300px;
-
-	height: 240px;
-
-	background: url('images/map.jpg');
-
-}
 
 .site-title {
 	font-size: 30px;
@@ -3883,8 +3894,12 @@ article img {
 
 	}
 
-
-
+	#main-menu li ul ul {
+		left: 0px !important;
+	}
+	#main-menu li ul li {
+		float:left !important;
+	}	
 }
 
 
@@ -4003,8 +4018,13 @@ article img {
 
 	}
 
+	#main-menu li ul ul {
+		left: 0px !important;
+	}
 
-
+	#main-menu li ul li {
+		float:left !important;
+	}	
 }
 
 
@@ -4038,8 +4058,6 @@ article img {
 		display: block;
 
 		cursor: pointer;
-
-		fill: #0A1E3F;
 
 		float: left;
 
@@ -4209,7 +4227,13 @@ article img {
 
 	}
 
+	#main-menu li ul ul {
+		left: 0px !important;
+	}
 
+	#main-menu li ul li {
+		float:left !important;
+	}	
 
 }
 

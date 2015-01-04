@@ -1,4 +1,4 @@
-<?php if( get_theme_mod( 'ti_subheader_title','This is a nice headline to get my attention' ) || get_theme_mod( 'ti_subheader_content','Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi' ) || get_theme_mod( 'ti_subheader_contact_form_shortcode' ) ): ?>	
+<?php if( get_theme_mod( 'ti_subheader_title',__('This is a nice headline to get my attention','plumbelt-lite') ) || get_theme_mod( 'ti_subheader_content',__('Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi','plumbelt-lite' )) || get_theme_mod( 'ti_subheader_contact_form_shortcode' ) ): ?>	
 	
 	<section id="featured">
 
@@ -12,17 +12,17 @@
 
 					<?php
 
-					if ( get_theme_mod( 'ti_subheader_title','This is a nice headline to get my attention' ) ) {
+					if ( get_theme_mod( 'ti_subheader_title',__('This is a nice headline to get my attention','plumbelt-lite') ) ) {
 
-						echo '<h2>'. get_theme_mod( 'ti_subheader_title','This is a nice headline to get my attention' ) .'</h2>';
+						echo '<h2>'. esc_attr(get_theme_mod( 'ti_subheader_title',__('This is a nice headline to get my attention','plumbelt-lite') )) .'</h2>';
 
 					}
 
 
 
-					if ( get_theme_mod( 'ti_subheader_content','Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi' ) ) {
+					if ( get_theme_mod( 'ti_subheader_content',__('Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi','plumbelt-lite') ) ) {
 
-						echo '<p>'. get_theme_mod( 'ti_subheader_content','Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi' ) .'</p>';
+						echo '<p>'. esc_attr(get_theme_mod( 'ti_subheader_content',__('Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi','plumbelt-lite' ))) .'</p>';
 
 					}
 
@@ -42,7 +42,7 @@
 
 					echo '<div class="widget cf">';
 
-					echo do_shortcode( get_theme_mod( 'ti_subheader_contact_form_shortcode' ) );
+					echo do_shortcode( esc_attr(get_theme_mod( 'ti_subheader_contact_form_shortcode' )) );
 
 					echo '</div>';
 

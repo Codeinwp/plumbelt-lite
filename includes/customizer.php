@@ -28,7 +28,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		'description' =>  __( "Thank you for being part of this! We've spent almost 6 months building ThemeIsle without really knowing if anyone will ever use a theme or not, so we're very grateful that you've decided to work with us. Wanna <a href='http://themeisle.com/contact/' target='_blank'>say hi</a>?<br/><br/><a href='http://themeisle.com/demo/?theme=PlumBelt%20Lite' target='_blank' />View Theme Demo</a> | <a href='http://themeisle.com/forums/forum/plumbelt-lite' target='_blank'>Get theme support</a><br/><br/><a href='http://themeisle.com/documentation-plumbelt-lite' target='_blank'>Documentation</a><br><br><a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme/' target='_blank' style='color:red'>Upgrade to PRO</a> ",'plumbelt-lite'),'priority'   => 30,
 	));
 	$wp_customize->add_setting( 
-        'codeinwp_theme_notes'
+        'codeinwp_theme_notes', array('sanitize_callback' => 'plumbelt_lite_sanitize_notes')
 	);
 	 $wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'codeinwp_theme_notes',
 	    array(
@@ -56,7 +56,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		/* Header - Logo */
 
 		$wp_customize->add_setting( 'ti_header_logo' ,
-        array('sanitize_callback' => 'esc_url_raw','default' => get_template_directory_uri() .'/images/logo.png'));
+        array('sanitize_callback' => 'esc_url_raw'));
 
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ti_header_logo', array(
 
@@ -392,7 +392,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		/* Front Page - Article - Image */
 
-		$wp_customize->add_setting( 'ti_frontpage_article_image',array('default' => get_template_directory_uri() .'/upload/article-1.jpg') );
+		$wp_customize->add_setting( 'ti_frontpage_article_image',array('default' => get_template_directory_uri() .'/upload/article-1.jpg', 'sanitize_callback' => 'esc_url_raw') );
 
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'ti_frontpage_article_image', array(
 
@@ -430,7 +430,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		/* Front Page - Article - Content */
 
 		$wp_customize->add_setting( 'ti_frontpage_article_content',
-        array('sanitize_callback' => 'plumbelt_lite_sanitize_text','default' => '<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit</p><p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.</p><p>Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p><p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.') );
+        array('sanitize_callback' => 'plumbelt_lite_sanitize_text','default' => '<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit</p><p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue.</p><p>Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p><p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.</p>') );
 
 		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'ti_frontpage_article_content', array(
 
@@ -447,11 +447,52 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		    )
 
 		);
+		
+		/* Front Page - Latest posts */
+
+		$wp_customize->add_setting( 'ti_frontpage_latestposts' ,
+        array('sanitize_callback' => 'plumbelt_lite_sanitize_select','default' => 'show'));
+
+		$wp_customize->add_control( 'ti_frontpage_latestposts', array(
+		
+			'type' => 'select',
+
+		    'label'    => __( 'Show or hide latest posts', 'plumbelt-lite' ),
+
+		    'section'  => 'frontpage_customizer',
+
+		    'settings' => 'ti_frontpage_latestposts',
+
+			'priority' => '10',
+			
+			'choices' => array(
+					'show' => 'Show',
+					'hide' => 'Hide'
+			),
+
+		) );
+		
+
+		 
+		$wp_customize->add_control(
+			'powered_by',
+			array(
+				'type' => 'select',
+				'label' => 'This site is powered by:',
+				'section' => 'example_section_one',
+				'choices' => array(
+					'wordpress' => 'WordPress',
+					'hamsters' => 'Hamsters',
+					'jet-fuel' => 'Jet Fuel',
+					'nuclear-energy' => 'Nuclear Energy',
+				),
+			)
+		);
 
 
 	/*
 
-    ** Frontpage Customizer
+    ** Footer Customizer
 
     */
 
@@ -570,7 +611,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		/* Footer - Contact Us - Iframe/ Code */
 
-		$wp_customize->add_setting( 'ti_footer_iframecode_content',array('default' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193572.0037917104!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York!5e0!3m2!1sro!2sro!4v1404281704059" width="600" height="450" frameborder="0" style="border:0"></iframe>') );
+		$wp_customize->add_setting( 'ti_footer_iframecode_content',array('default' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193572.0037917104!2d-73.97800349999999!3d40.7056308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York!5e0!3m2!1sro!2sro!4v1404281704059" width="600" height="450" frameborder="0" style="border:0"></iframe>','sanitize_callback' => 'plumbelt_lite_sanitize_iframe') );
 
 		$wp_customize->add_control( new Example_Customize_Textarea_Control( $wp_customize, 'ti_footer_iframecode_content', array(
 
@@ -630,8 +671,18 @@ function plumbelt_lite_customizer( $wp_customize ) {
 		function plumbelt_lite_sanitize_text( $input ) {
 			return wp_kses_post( force_balance_tags( $input ) );
 		}
-
-
+		
+		function plumbelt_lite_sanitize_notes( $input ) {
+			return $input;
+		}	
+		
+		function plumbelt_lite_sanitize_iframe( $input ) {
+			return force_balance_tags( $input );
+		}
+		
+		function plumbelt_lite_sanitize_select( $input ) {
+			return $input;
+		}
 
 }
 
@@ -682,5 +733,20 @@ function plumbelt_lite_customize_preview_js() {
 }
 
 add_action( 'customize_preview_init', 'plumbelt_lite_customize_preview_js' );
+
+
+function plumbelt_lite_registers() {
+
+	wp_register_script( 'plumbelt_lite_customizer_script', get_template_directory_uri() . '/js/plumbelt_lite_customizer.js', array("jquery"), '20120206', true  );
+
+	wp_enqueue_script( 'plumbelt_lite_customizer_script' );
+	wp_localize_script( 'plumbelt_lite_customizer_script', 'plumbelt_lite_pro_text', array(
+		'doc'  => __( 'Documentation', 'plumbelt-lite' ),
+		'pro' => __( 'View PRO Version', 'plumbelt-lite' ),
+	) );
+
+}
+
+add_action( 'customize_controls_enqueue_scripts', 'plumbelt_lite_registers' );
 
 ?>

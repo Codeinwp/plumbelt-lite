@@ -30,7 +30,7 @@ if ( post_password_required() )
     <?php endif; ?>
     <ol class="comments-list cf">
         <?php wp_list_comments( array(
-                'callback'  => 'comments_list',
+                'callback'  => 'plumbelt_lite_comments_list',
                 'max_depth' => '3'
             )
         ); ?>
@@ -59,22 +59,22 @@ if ( post_password_required() )
     $req = get_option( 'require_name_email' );
     $aria_req = ( $req ? " aria-required='true'" : '' );
     if($commenter['comment_author'] != '')
-        $name = esc_attr($commenter['comment_author']);
+        $name = $commenter['comment_author'];
     else
         $name = '';
     if($commenter['comment_author_email'] != '')
-        $email = esc_attr($commenter['comment_author_email']);
+        $email = $commenter['comment_author_email'];
     else
         $email = '';
     if($commenter['comment_author_url'] != '')
-        $url = esc_attr($commenter['comment_author_url']);
+        $url = $commenter['comment_author_url'];
     else
         $url = '';
 
     $fields = array(
-        'author' => '<div class="respond"><input class="input-text" placeholder="Full Name (*)" name="author" type="text" value="' . $name . '" ' . $aria_req . ' />',
-        'email'  => '<input class="input-text" placeholder="E-mail (*)" name="email" type="email" value="' . $email . '" ' . $aria_req . ' />',
-        'url'    => '<input class="input-text" placeholder="Website" name="url" type="url" value="' . $url . '" />'
+        'author' => '<div class="respond"><input class="input-text" placeholder="Full Name (*)" name="author" type="text" value="' . esc_attr($name) . '" ' . $aria_req . ' />',
+        'email'  => '<input class="input-text" placeholder="E-mail (*)" name="email" type="email" value="' . esc_attr($email) . '" ' . $aria_req . ' />',
+        'url'    => '<input class="input-text" placeholder="Website" name="url" type="url" value="' . esc_url($url) . '" />'
     );
     $comment_textarea = '<textarea placeholder="Your Message (*)" name="comment" aria-required="true"></textarea>';
 
