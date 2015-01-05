@@ -36,6 +36,41 @@ function plumbelt_lite_customizer( $wp_customize ) {
 	   )
 	));	
 	
+	/*
+	**	Custom Colors Section
+	*/
+    $wp_customize->add_section( 'plumbelt_custom_colors' , array(
+
+    	'title'       => __( 'Custom Colors', 'plumbelt-lite' ),
+		'description' => __( "Change colors for the entire theme. This feature is available in the pro version. <a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme' target='_blank'>Get it now!</a>",'plumbelt-lite'),
+    	'priority'    => 150,
+	) );
+	
+	$wp_customize->add_setting(
+        'plumbelt_custom_colors',array('sanitize_callback' => 'plumbelt_lite_sanitize_text'));
+	
+	$wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'plumbelt_custom_colors',
+	    array(
+	        'section' => 'plumbelt_custom_colors',
+	   )
+	));
+	
+	/* Header image */
+	
+	$wp_customize->add_section( 'plumbelt_headerimage_custom' , array(
+	
+		'title'      => __('Header Image','plumbelt-lite'),
+		'description' => __( "This feature is available in the pro version. <a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme' target='_blank'>Get it now!</a>",'plumbelt-lite'),
+		'priority'   => 190,
+	));
+	$wp_customize->add_setting(
+        'plumbelt_headerimage_custom',array('sanitize_callback' => 'plumbelt_lite_sanitize_text'));
+	
+	$wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'plumbelt_headerimage_custom',
+	    array(
+	        'section' => 'plumbelt_headerimage_custom',
+	   )
+	));
 
     /*
 
@@ -489,6 +524,56 @@ function plumbelt_lite_customizer( $wp_customize ) {
 			)
 		);
 
+	/* Testimonials */
+	
+	$wp_customize->add_section( 'plumbelt_testimonials' , array(
+	
+		'title'      => __('Testimonials','plumbelt-lite'),
+		'description' => __( "This feature is available in the pro version. <a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme' target='_blank'>Get it now!</a>",'plumbelt-lite'),
+		'priority'   => 310,
+	));
+	$wp_customize->add_setting(
+        'plumbelt_testimonials',array('sanitize_callback' => 'plumbelt_lite_sanitize_text'));
+	
+	$wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'plumbelt_testimonials',
+	    array(
+	        'section' => 'plumbelt_testimonials',
+	   )
+	));
+	
+	/* Our Team */
+	
+	$wp_customize->add_section( 'plumbelt_our_team' , array(
+	
+		'title'      => __('Our Team','plumbelt-lite'),
+		'description' => __( "This feature is available in the pro version. <a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme' target='_blank'>Get it now!</a>",'plumbelt-lite'),
+		'priority'   => 320,
+	));
+	$wp_customize->add_setting(
+        'plumbelt_our_team',array('sanitize_callback' => 'plumbelt_lite_sanitize_text'));
+	
+	$wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'plumbelt_our_team',
+	    array(
+	        'section' => 'plumbelt_our_team',
+	   )
+	));
+	
+	/* Projects */
+	
+	$wp_customize->add_section( 'plumbelt_projects' , array(
+	
+		'title'      => __('Projects','plumbelt-lite'),
+		'description' => __( "This feature is available in the pro version. <a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme' target='_blank'>Get it now!</a>",'plumbelt-lite'),
+		'priority'   => 330,
+	));
+	$wp_customize->add_setting(
+        'plumbelt_projects',array('sanitize_callback' => 'plumbelt_lite_sanitize_text'));
+	
+	$wp_customize->add_control( new plumbelt_lite_Theme_Support( $wp_customize, 'plumbelt_projects',
+	    array(
+	        'section' => 'plumbelt_projects',
+	   )
+	));
 
 	/*
 
