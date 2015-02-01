@@ -52,34 +52,6 @@ jQuery(document).ready(function($) {
 
 /*
 
-** Masonry
-
-*/
-
-jQuery(document).ready(function($) {
-
-
-
-	var $container = $('.testimonial-container');
-
-
-
-	$container.imagesLoaded( function(){
-
-		$container.masonry({
-
-			itemSelector : '.testimonial'
-
-		});
-
-	});
-
-});
-
-
-
-/*
-
 ** Responsive Menu
 
 */
