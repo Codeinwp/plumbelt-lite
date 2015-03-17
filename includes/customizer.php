@@ -25,7 +25,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 	
 	$wp_customize->add_section( 'codeinwp_theme_notes' , array(
 		'title'      => __('ThemeIsle theme notes','plumbelt-lite'),
-		'description' =>  __( "Thank you for being part of this! We've spent almost 6 months building ThemeIsle without really knowing if anyone will ever use a theme or not, so we're very grateful that you've decided to work with us. Wanna <a href='http://themeisle.com/contact/' target='_blank'>say hi</a>?<br/><br/><a href='http://themeisle.com/demo/?theme=PlumBelt%20Lite' target='_blank' />View Theme Demo</a> | <a href='http://themeisle.com/forums/forum/plumbelt-lite' target='_blank'>Get theme support</a><br/><br/><a href='http://themeisle.com/documentation-plumbelt-lite' target='_blank'>Documentation</a><br><br><a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme/' target='_blank' style='color:red'>Upgrade to PRO</a> ",'plumbelt-lite'),'priority'   => 30,
+		'description' =>  __( "Thank you for being part of this! We've spent almost 6 months building ThemeIsle without really knowing if anyone will ever use a theme or not, so we're very grateful that you've decided to work with us. Wanna <a href='http://themeisle.com/contact/' target='_blank'>say hi</a>?<br/><br/><a href='http://themeisle.com/demo/?theme=PlumBelt%20Lite' target='_blank'>View Theme Demo</a> | <a href='http://themeisle.com/forums/forum/plumbelt-lite' target='_blank'>Get theme support</a><br/><br/><a href='http://themeisle.com/documentation-plumbelt-lite' target='_blank'>Documentation</a><br><br><a href='https://themeisle.com/themes/plumbelt-plumbing-wordpress-theme/' target='_blank' style='color:red'>Upgrade to PRO</a> ",'plumbelt-lite'),'priority'   => 30,
 	));
 	$wp_customize->add_setting( 
         'codeinwp_theme_notes', array('sanitize_callback' => 'plumbelt_lite_sanitize_notes')
@@ -298,6 +298,30 @@ function plumbelt_lite_customizer( $wp_customize ) {
 	) );
 
 
+		/* Front Page - Latest posts */
+
+		$wp_customize->add_setting( 'ti_frontpage_latestposts' ,
+        array('sanitize_callback' => 'plumbelt_lite_sanitize_select','default' => 'show'));
+
+		$wp_customize->add_control( 'ti_frontpage_latestposts', array(
+		
+			'type' => 'select',
+
+		    'label'    => __( 'Show or hide latest posts', 'plumbelt-lite' ),
+
+		    'section'  => 'frontpage_customizer',
+
+		    'settings' => 'ti_frontpage_latestposts',
+
+			'priority' => '1',
+			
+			'choices' => array(
+					'show' => 'Show',
+					'hide' => 'Hide'
+			),
+
+		) );
+	
 
 		/* Frontpage - Box One - Title */
 
@@ -312,7 +336,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		    'settings' => 'ti_frontpage_boxone_title',
 
-			'priority' => '1',
+			'priority' => '2',
 
 		) );
 
@@ -331,7 +355,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		            'settings' 	=> 'ti_frontpage_boxone_content',
 
-		            'priority' 	=> '2'
+		            'priority' 	=> '3'
 
 		        )
 
@@ -354,7 +378,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		    'settings' => 'ti_frontpage_boxtwo_title',
 
-			'priority' => '3',
+			'priority' => '4',
 
 		) );
 
@@ -373,7 +397,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		            'settings' 	=> 'ti_frontpage_boxtwo_content',
 
-		            'priority' 	=> '4'
+		            'priority' 	=> '5'
 
 		        )
 
@@ -396,7 +420,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		    'settings' => 'ti_frontpage_boxthree_title',
 
-			'priority' => '5',
+			'priority' => '6',
 
 		) );
 
@@ -415,7 +439,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		            'settings' 	=> 'ti_frontpage_boxthree_content',
 
-		            'priority' 	=> '6'
+		            'priority' 	=> '7'
 
 		        )
 
@@ -437,7 +461,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		    'settings' => 'ti_frontpage_article_image',
 
-		    'priority' => '7',
+		    'priority' => '8',
 
 		) ) );
 
@@ -456,7 +480,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		    'settings' => 'ti_frontpage_article_title',
 
-			'priority' => '8',
+			'priority' => '9',
 
 		) );
 
@@ -475,7 +499,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		            'settings' 	=> 'ti_frontpage_article_content',
 
-		            'priority' 	=> '9'
+		            'priority' 	=> '10'
 
 		        )
 
@@ -483,46 +507,7 @@ function plumbelt_lite_customizer( $wp_customize ) {
 
 		);
 		
-		/* Front Page - Latest posts */
-
-		$wp_customize->add_setting( 'ti_frontpage_latestposts' ,
-        array('sanitize_callback' => 'plumbelt_lite_sanitize_select','default' => 'show'));
-
-		$wp_customize->add_control( 'ti_frontpage_latestposts', array(
 		
-			'type' => 'select',
-
-		    'label'    => __( 'Show or hide latest posts', 'plumbelt-lite' ),
-
-		    'section'  => 'frontpage_customizer',
-
-		    'settings' => 'ti_frontpage_latestposts',
-
-			'priority' => '10',
-			
-			'choices' => array(
-					'show' => 'Show',
-					'hide' => 'Hide'
-			),
-
-		) );
-		
-
-		 
-		$wp_customize->add_control(
-			'powered_by',
-			array(
-				'type' => 'select',
-				'label' => 'This site is powered by:',
-				'section' => 'example_section_one',
-				'choices' => array(
-					'wordpress' => 'WordPress',
-					'hamsters' => 'Hamsters',
-					'jet-fuel' => 'Jet Fuel',
-					'nuclear-energy' => 'Nuclear Energy',
-				),
-			)
-		);
 
 	/* Testimonials */
 	

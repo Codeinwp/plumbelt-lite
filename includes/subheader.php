@@ -42,7 +42,7 @@
 
 					echo '<div class="widget cf">';
 
-					echo do_shortcode( esc_attr(get_theme_mod( 'ti_subheader_contact_form_shortcode' )) );
+					echo do_shortcode(get_theme_mod( 'ti_subheader_contact_form_shortcode' ));
 
 					echo '</div>';
 
