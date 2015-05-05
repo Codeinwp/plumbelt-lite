@@ -813,6 +813,7 @@ function plumbelt_lite_registers() {
 	wp_localize_script( 'plumbelt_lite_customizer_script', 'plumbelt_lite_pro_text', array(
 		'doc'  => __( 'Documentation', 'plumbelt-lite' ),
 		'pro' => __( 'View PRO Version', 'plumbelt-lite' ),
+		'review' => __('Leave a review ( it will help us )','plumbelt-lite')
 	) );
 
 }
