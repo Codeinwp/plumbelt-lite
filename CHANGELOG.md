@@ -1,5 +1,17 @@
 
 
+### 1.2.7 - 05/05/2015
+
+ Changes: 
+
+
+ * this fixes #23 - added review button in customizer
+ * Merge pull request #29 from cristian-ungureanu/development
+
+this fixes #23 - added review button in customizer
+ * TGMPA security update
+
+
 ### 1.2.6 - 17/03/2015
 
  Changes: 
