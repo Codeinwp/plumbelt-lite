@@ -1,5 +1,16 @@
 
 
+### 1.2.8 - 14/07/2015
+
+ Changes: 
+
+
+ * Update class-tgm-plugin-activation to latest version
+
+to fix issue caused by older version
+ * Update style.css
+
+
 ### 1.2.7 - 05/05/2015
 
  Changes: 
