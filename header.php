@@ -22,8 +22,6 @@
 
 	<meta name="viewport" content="width=devide-width, initial-scale=1.0, maximum-scale=2.0" />
 
-	<title><?php wp_title('|', true, 'right');?></title>
-
 	<!--[if lt IE 9]>
 
 		<script src="<?php echo get_template_directory_uri(); ?>/js/html5shiv.js"></script>

@@ -29,6 +29,14 @@ function plumbelt_lite_load_theme_textdomain() {
 	add_theme_support( 'post-thumbnails' ); // Post Thumbnails
 
 	add_theme_support( 'automatic-feed-links' ); // Automatic Feed Links
+
+	/*
+     * Let WordPress manage the document title.
+     * By adding theme support, we declare that this theme does not use a
+     * hard-coded <title> tag in the document head, and expect WordPress to
+     * provide it for us.
+	 */
+	add_theme_support( 'title-tag' );
 	
 }
 add_action( 'after_setup_theme', 'plumbelt_lite_load_theme_textdomain' );
@@ -103,8 +111,7 @@ function plumbelt_lite_required_plugins() {
     $config = array(
         'domain'            => 'plumbelt-lite',           // Text domain - likely want to be the same as your theme.
         'default_path'      => '',                          // Default absolute path to pre-packaged plugins
-        'parent_menu_slug'  => 'themes.php',                // Default parent menu slug
-        'parent_url_slug'   => 'themes.php',                // Default parent URL slug
+        'parent_slug'       => 'themes.php',                // Default parent menu slug
         'menu'              => 'install-required-plugins',  // Menu slug
         'has_notices'       => true,                        // Show admin notices or not
         'is_automatic'      => false,                       // Automatically activate plugins after installation or not
@@ -112,21 +119,21 @@ function plumbelt_lite_required_plugins() {
         'strings'           => array(
             'page_title'                                => __( 'Install Required Plugins', 'plumbelt-lite' ),
             'menu_title'                                => __( 'Install Plugins', 'plumbelt-lite' ),
-            'installing'                                => __( 'Installing Plugin: %s', 'plumbelt-lite' ), // %1$s = plugin name
+            'installing'                                => __( 'Installing Plugin: %s', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
             'oops'                                      => __( 'Something went wrong with the plugin API.', 'plumbelt-lite' ),
-            'notice_can_install_required'               => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ), // %1$s = plugin name(s)
-            'notice_can_install_recommended'            => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ), // %1$s = plugin name(s)
-            'notice_cannot_install'                     => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ), // %1$s = plugin name(s)
-            'notice_can_activate_required'              => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-            'notice_can_activate_recommended'           => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ), // %1$s = plugin name(s)
-            'notice_cannot_activate'                    => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ), // %1$s = plugin name(s)
-            'notice_ask_to_update'                      => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ), // %1$s = plugin name(s)
-            'notice_cannot_update'                      => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ), // %1$s = plugin name(s)
-            'install_link'                              => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-            'activate_link'                             => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
+            'notice_can_install_required'               => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_can_install_recommended'            => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_cannot_install'                     => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_can_activate_required'              => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_can_activate_recommended'           => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_cannot_activate'                    => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_ask_to_update'                      => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'notice_cannot_update'                      => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'plumbelt-lite' ), /* Translators: link to the recommended plugin */
+            'install_link'                              => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'plumbelt-lite' ),
+            'activate_link'                             => _n_noop( 'Activate installed plugin', 'Activate installed plugins', 'plumbelt-lite' ),
             'return'                                    => __( 'Return to Required Plugins Installer', 'plumbelt-lite' ),
             'plugin_activated'                          => __( 'Plugin activated successfully.', 'plumbelt-lite' ),
-            'complete'                                  => __( 'All plugins installed and activated successfully. %s', 'plumbelt-lite' ), // %1$s = dashboard link
+            'complete'                                  => __( 'All plugins installed and activated successfully. %s', 'plumbelt-lite' ), /* Translators: dashboard link */
             'nag_type'                                  => 'updated' // Determines admin notice type - can only be 'updated' or 'error'
         )
     );
@@ -201,3 +208,54 @@ function plumbelt_lite_general_sidebar() {
 }
 
 add_action( 'widgets_init', 'plumbelt_lite_general_sidebar' );
+
+/**
+ * Notice in Customize to announce the theme is not maintained anymore
+ */
+
+function plumbelt_lite_customize_register( $wp_customize ) {
+
+	require_once get_stylesheet_directory() . '/class-ti-notify.php';
+
+	$wp_customize->register_section_type( 'Ti_Notify' );
+
+	$wp_customize->add_section(
+		new Ti_Notify(
+			$wp_customize,
+			'ti-notify',
+			array(
+				'text'     => sprintf( __( 'This theme is not maintained anymore, check-out our latest free one-page theme: %1$s.','plumbelt-lite' ), sprintf( '<a href="' . admin_url( 'theme-install.php?theme=hestia' ) . '">%s</a>', 'Hestia' ) ),
+				'priority' => 0,
+			)
+		)
+	);
+
+	$wp_customize->add_setting( 'plumbelt-lite-notify', array(
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_control( 'plumbelt-lite-notify', array(
+		'label'    => __( 'Notification', 'plumbelt-lite' ),
+		'section'  => 'ti-notify',
+		'priority' => 1,
+	) );
+}
+
+add_action( 'customize_register', 'plumbelt_lite_customize_register' );
+
+/**
+ * Notice in admin dashboard to announce the theme is not maintained anymore
+ */
+
+function plumbelt_lite_admin_notice() {
+
+	global $pagenow;
+
+	if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
+		echo '<div class="updated notice is-dismissible"><p>';
+		printf( __( 'This theme is not maintained anymore, check-out our latest free one-page theme: %1$s.','plumbelt-lite' ), sprintf( '<a href="' . admin_url( 'theme-install.php?theme=hestia' ) . '">%s</a>', 'Hestia' ) );
+		echo '</p></div>';
+	}
+}
+
+add_action( 'admin_notices', 'plumbelt_lite_admin_notice', 99 );
