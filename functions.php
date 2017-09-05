@@ -103,8 +103,7 @@ function plumbelt_lite_required_plugins() {
     $config = array(
         'domain'            => 'plumbelt-lite',           // Text domain - likely want to be the same as your theme.
         'default_path'      => '',                          // Default absolute path to pre-packaged plugins
-        'parent_menu_slug'  => 'themes.php',                // Default parent menu slug
-        'parent_url_slug'   => 'themes.php',                // Default parent URL slug
+        'parent_slug'       => 'themes.php',                // Default parent menu slug
         'menu'              => 'install-required-plugins',  // Menu slug
         'has_notices'       => true,                        // Show admin notices or not
         'is_automatic'      => false,                       // Automatically activate plugins after installation or not
@@ -201,3 +200,54 @@ function plumbelt_lite_general_sidebar() {
 }
 
 add_action( 'widgets_init', 'plumbelt_lite_general_sidebar' );
+
+/**
+ * Notice in Customize to announce the theme is not maintained anymore
+ */
+
+function plumbelt_lite_customize_register( $wp_customize ) {
+
+	require_once get_stylesheet_directory() . '/class-ti-notify.php';
+
+	$wp_customize->register_section_type( 'Ti_Notify' );
+
+	$wp_customize->add_section(
+		new Ti_Notify(
+			$wp_customize,
+			'ti-notify',
+			array(
+				'text'     => sprintf( __( 'This theme is not maintained anymore, check-out our latest free one-page theme: %1$s.','plumbelt-lite' ), sprintf( '<a href="' . admin_url( 'theme-install.php?theme=hestia' ) . '">%s</a>', 'Hestia' ) ),
+				'priority' => 0,
+			)
+		)
+	);
+
+	$wp_customize->add_setting( 'plumbelt-lite-notify', array(
+		'sanitize_callback' => 'esc_html',
+	) );
+
+	$wp_customize->add_control( 'plumbelt-lite-notify', array(
+		'label'    => __( 'Notification', 'plumbelt-lite' ),
+		'section'  => 'ti-notify',
+		'priority' => 1,
+	) );
+}
+
+add_action( 'customize_register', 'plumbelt_lite_customize_register' );
+
+/**
+ * Notice in admin dashboard to announce the theme is not maintained anymore
+ */
+
+function plumbelt_lite_admin_notice() {
+
+	global $pagenow;
+
+	if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
+		echo '<div class="updated notice is-dismissible"><p>';
+		printf( __( 'This theme is not maintained anymore, check-out our latest free one-page theme: %1$s.','plumbelt-lite' ), sprintf( '<a href="' . admin_url( 'theme-install.php?theme=hestia' ) . '">%s</a>', 'Hestia' ) );
+		echo '</p></div>';
+	}
+}
+
+add_action( 'admin_notices', 'plumbelt_lite_admin_notice', 99 );
