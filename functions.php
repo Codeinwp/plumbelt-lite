@@ -75,9 +75,9 @@ add_action('wp_head', 'plumbelt_lite_add_ie_html5_shim');
 
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'plumbelt_lite_required_plugins' );
+add_action( 'tgmpa_register', 'plumbelt_lite_register_required_plugins' );
 
-function plumbelt_lite_required_plugins() {
+function plumbelt_lite_register_required_plugins() {
 
     /**
      * Array of plugin arrays. Required keys are name and slug.
@@ -92,8 +92,8 @@ function plumbelt_lite_required_plugins() {
             'required'  => false,
         ),
         array(
-            'name'      => 'Contact Form 7',
-            'slug'      => 'contact-form-7',
+            'name'      => 'Orbit Fox',
+            'slug'      => 'themeisle-companion',
             'required'  => false,
         ),
     
